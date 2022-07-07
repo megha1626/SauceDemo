@@ -79,14 +79,11 @@ public class PriceInfoPage extends BasePage{
 		if(productTotal!=subtotalValue) {
 			return false;
 		}
-		
-		
 
 
 		String tax= Actions.getText(driver, lbltax, "tax");
 		tax=tax.substring(tax.indexOf("$") + 1 , tax.length());
 		float subtTaxValue=Float.valueOf(tax).floatValue();
-
 
 
 		String Total= Actions.getText(driver, lblTotal, "total");
@@ -98,9 +95,9 @@ public class PriceInfoPage extends BasePage{
 
 		if(actualTotal== expectedtotal) {
 
-			System.out.println("Prive isnew  :"+Total);
+			
 			Actions.Click(driver, btnFinish,"Finish ");
-			return flag;
+			return true;
 		}
 
 

@@ -35,7 +35,7 @@ public class AddCartTest extends BaseTest {
 		checkout.completeCheckOut();
 		
 		PriceInfoPage priceInfo=new PriceInfoPage(driver);
-		priceInfo.verifyPriceInfo();
+		Assert.assertTrue(priceInfo.verifyPriceInfo());
 		
 		
 		CompleteCheckoutPage completecheck=new CompleteCheckoutPage(driver);
