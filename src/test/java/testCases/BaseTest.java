@@ -9,11 +9,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.opentelemetry.exporter.logging.SystemOutLogExporter;
+import utils.Helper;
 
 
 
@@ -25,7 +29,7 @@ public class BaseTest {
 
 
 	@SuppressWarnings("deprecation")
-	@BeforeSuite
+	@BeforeClass
 	public void setup() throws IOException  {
 
 		WebDriverManager.chromedriver().setup();
@@ -34,13 +38,13 @@ public class BaseTest {
 
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-	
+
 		
 		driver.get("https://www.saucedemo.com/");
 	}
 	
 	
-	@AfterSuite
+	@AfterClass
 	public void close() {
 		driver.quit();
 	}

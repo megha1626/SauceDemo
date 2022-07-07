@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import testCases.BaseTest;
 import utils.Actions;
+import utils.Helper;
 
 public class LoginPage extends BasePage{
 
@@ -16,10 +17,11 @@ public class LoginPage extends BasePage{
 	@FindBy(id="password")
 	WebElement txtPassword;
 	
-	@FindBy(id="login-button")
+	@FindBy(id="login-buttonn")
 	WebElement btnLogin;
 	
-	
+	@FindBy(xpath="//h3[contains(text(),'Epic sadface: Sorry, this user has been locked out')]")
+	WebElement errorLocked;
 	
 	
 	
@@ -29,14 +31,21 @@ public class LoginPage extends BasePage{
 
 	
 	
-	public void Login(){
+	public void Login(String username,String password){
 		
-	
-		Actions.SendKeys(driver,txtUserName,prop.getProperty("username"),"username");
-		Actions.SendKeys(driver,txtPassword,prop.getProperty("password"),"password");
+		Actions.SendKeys(driver,txtUserName,username,"username");
+		Actions.SendKeys(driver,txtPassword,password,"password");
 		Actions.Click(driver,btnLogin,"btn Login");
 		
 		
 	}
+	
+public boolean isDispLockedMessage(){
+		
+	return errorLocked.isDisplayed();
+		
+		
+	}
+	
 	
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import utils.Actions;
+import utils.Helper;
 
 public class CheckOutPage extends BasePage {
 
@@ -46,10 +47,11 @@ public class CheckOutPage extends BasePage {
 
 	public void completeCheckOut(){
 		
-		Actions.SendKeys(driver,txtFirstName,prop.getProperty("firstName"),"firstName");
-		Actions.SendKeys(driver,txtLastName,prop.getProperty("lastName"),"lastName");
+		Actions.SendKeys(driver,txtFirstName,Helper.getPropertyValue("firstName"),"firstName");
 		
-		Actions.SendKeys(driver,txtZipCode,prop.getProperty("zipcode"),"Zipcode");
+		Actions.SendKeys(driver,txtLastName,Helper.getPropertyValue("lastName"),"lastName");
+		
+		Actions.SendKeys(driver,txtZipCode,Helper.getPropertyValue("zipcode"),"Zipcode");
 		Actions.Click(driver, btnContinue, "continue ");
 		Actions.Click(driver, btnFinish,"Finish ");
 		

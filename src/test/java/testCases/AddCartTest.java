@@ -9,6 +9,7 @@ import pageObjects.CheckOutPage;
 import pageObjects.CompleteCheckoutPage;
 import pageObjects.LoginPage;
 import pageObjects.ProductsPage;
+import utils.Helper;
 
 public class AddCartTest extends BaseTest {
 
@@ -17,7 +18,8 @@ public class AddCartTest extends BaseTest {
 	public void addTocart() {
 		
 		LoginPage login=new LoginPage(driver);
-		login.Login();
+	
+		login.Login(Helper.getPropertyValue("standUsername"),Helper.getPropertyValue("password"));
 		
 		ProductsPage prod=new ProductsPage(driver);
 		Assert.assertTrue(prod.isDisplayedProducts());
@@ -35,7 +37,6 @@ public class AddCartTest extends BaseTest {
 		Assert.assertTrue(completecheck.verifyCompleteText());
 		Assert.assertTrue(completecheck.verifyCompleteImage());
 		Assert.assertTrue(completecheck.verifyCompleteCheckout());
-		
 		
 		
 	}
