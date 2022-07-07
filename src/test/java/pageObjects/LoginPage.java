@@ -17,7 +17,7 @@ public class LoginPage extends BasePage{
 	@FindBy(id="password")
 	WebElement txtPassword;
 	
-	@FindBy(id="login-buttonn")
+	@FindBy(id="login-button")
 	WebElement btnLogin;
 	
 	@FindBy(xpath="//h3[contains(text(),'Epic sadface: Sorry, this user has been locked out')]")

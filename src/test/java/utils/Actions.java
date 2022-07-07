@@ -37,11 +37,12 @@ public static void SendKeys(WebDriver driver, WebElement element, String Value, 
 		}
 		
 	}
-public static void getText(WebDriver driver, WebElement element, String elementName) {
+public static String getText(WebDriver driver, WebElement element, String elementName) {
 	
+	String value=null;
 	try {
 		
-		String value=element.getText();
+		value=element.getText();
 		logger.info(value+" is fetched Successfully from "+elementName);
 		
 	}
@@ -49,6 +50,8 @@ public static void getText(WebDriver driver, WebElement element, String elementN
 	catch(Exception e) {
 		logger.error("Not Able to fetched text");
 	}
+	
+	return value;
 	
 }
 }

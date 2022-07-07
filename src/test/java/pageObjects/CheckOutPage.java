@@ -26,8 +26,7 @@ public class CheckOutPage extends BasePage {
 	@FindBy(id="continue")
 	WebElement btnContinue;
 
-	@FindBy(id="finish")
-	WebElement btnFinish;
+	
 	
 
 	@FindBy(xpath="//span[contains(text(),'Checkout: Your Information')]")
@@ -53,7 +52,6 @@ public class CheckOutPage extends BasePage {
 		
 		Actions.SendKeys(driver,txtZipCode,Helper.getPropertyValue("zipcode"),"Zipcode");
 		Actions.Click(driver, btnContinue, "continue ");
-		Actions.Click(driver, btnFinish,"Finish ");
-		
+	
 	}
 }
